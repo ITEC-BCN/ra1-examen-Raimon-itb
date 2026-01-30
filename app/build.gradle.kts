@@ -1,6 +1,10 @@
+import java.lang.module.ModuleFinder.compose
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.android)
+
 }
 
 android {
@@ -35,6 +39,9 @@ android {
     buildFeatures {
         compose = true
     }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
 }
 
 dependencies {
@@ -57,4 +64,5 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     implementation(libs.androidx.constraintlayout.compose)
+    implementation("androidx.navigation:navigation-compose:2.9.6")
 }
